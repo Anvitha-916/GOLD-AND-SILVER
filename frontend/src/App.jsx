@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import API_BASE from "./api";
+import IntroOverlay from "./IntroOverlay";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import {
   CartesianGrid,
@@ -254,6 +255,7 @@ export default function App() {
 
   return (
     <main className="page-shell home-page">
+      <IntroOverlay />
       <section className="front-grid">
         <article className="front-copy">
           <a className="forecast-toggle" href="./forecast.html">

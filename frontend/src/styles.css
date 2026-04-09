@@ -39,6 +39,112 @@ p {
   min-height: 100vh;
 }
 
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(242, 205, 114, 0.14), transparent 26%),
+    radial-gradient(circle at 80% 28%, rgba(242, 205, 114, 0.1), transparent 24%),
+    linear-gradient(180deg, #080807 0%, #121008 55%, #060606 100%);
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+.intro-overlay.is-fading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro-core {
+  position: relative;
+  width: min(920px, 100%);
+  padding: 44px 32px;
+  text-align: center;
+  border: 1px solid rgba(242, 205, 114, 0.18);
+  border-radius: 36px;
+  background: rgba(7, 7, 7, 0.72);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(16px);
+}
+
+.intro-kicker {
+  margin-bottom: 18px;
+  color: var(--gold);
+  letter-spacing: 0.28em;
+  font-size: 0.76rem;
+}
+
+.intro-core h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 4.8vw, 4.4rem);
+  line-height: 1.02;
+  color: #f7e7ba;
+  text-transform: uppercase;
+}
+
+.intro-copy {
+  width: min(640px, 100%);
+  margin: 20px auto 0;
+  color: #d6c79c;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.intro-bar {
+  width: min(280px, 100%);
+  height: 6px;
+  margin: 28px auto 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(242, 205, 114, 0.12);
+}
+
+.intro-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7a5a14 0%, #f2cd72 55%, #fff2cb 100%);
+  animation: intro-progress 5s linear forwards;
+}
+
+.intro-orbit {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(6px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.intro-orbit-left {
+  width: 220px;
+  height: 220px;
+  top: 10%;
+  left: 8%;
+  background: radial-gradient(circle, rgba(242, 205, 114, 0.2), transparent 68%);
+}
+
+.intro-orbit-right {
+  width: 260px;
+  height: 260px;
+  right: 8%;
+  bottom: 12%;
+  background: radial-gradient(circle, rgba(242, 205, 114, 0.14), transparent 68%);
+}
+
+@keyframes intro-progress {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 .page-shell {
   width: min(1200px, calc(100% - 32px));
   margin: 0 auto;
@@ -551,6 +657,11 @@ p {
 }
 
 @media (max-width: 640px) {
+  .intro-core {
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
   .page-shell {
     width: min(100% - 20px, 1200px);
     padding-top: 20px;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import API_BASE from "./api";
+import IntroOverlay from "./IntroOverlay";
 import {
   CartesianGrid,
   Line,
@@ -149,6 +150,7 @@ export default function ForecastApp() {
 
   return (
     <main className="page-shell forecast-page">
+      <IntroOverlay />
       <section className="forecast-layout">
         <div className="hero-copy forecast-box">
           <a className="forecast-toggle" href="./index.html">
