@@ -108,7 +108,7 @@ p {
   height: 100%;
   border-radius: inherit;
   background: linear-gradient(90deg, #7a5a14 0%, #f2cd72 55%, #fff2cb 100%);
-  animation: intro-progress 5s linear forwards;
+  animation: intro-progress 13s linear forwards;
 }
 
 .intro-orbit {

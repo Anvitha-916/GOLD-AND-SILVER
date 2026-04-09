@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const DISPLAY_MS = 5000;
+const DISPLAY_MS = 13000;
 const FADE_MS = 900;
 
 export default function IntroOverlay() {
