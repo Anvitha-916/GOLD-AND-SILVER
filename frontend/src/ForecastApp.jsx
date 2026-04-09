@@ -151,7 +151,7 @@ export default function ForecastApp() {
     <main className="page-shell forecast-page">
       <section className="forecast-layout">
         <div className="hero-copy forecast-box">
-          <a className="forecast-toggle" href="/index.html">
+          <a className="forecast-toggle" href="./index.html">
             World Maps
           </a>
           <p className="eyebrow">Metal Price Forecast</p>

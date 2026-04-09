@@ -256,7 +256,7 @@ export default function App() {
     <main className="page-shell home-page">
       <section className="front-grid">
         <article className="front-copy">
-          <a className="forecast-toggle" href="/forecast.html">
+          <a className="forecast-toggle" href="./forecast.html">
             Metal Forecast
           </a>
           <p className="eyebrow">Global Supply And Usage</p>
