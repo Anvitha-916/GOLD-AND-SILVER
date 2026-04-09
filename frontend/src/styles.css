@@ -93,22 +93,24 @@ p {
   line-height: 1.65;
 }
 
-.intro-bar {
-  width: min(280px, 100%);
-  height: 6px;
-  margin: 28px auto 0;
+.intro-skip {
+  margin-top: 30px;
+  padding: 12px 22px;
+  border: 1px solid rgba(242, 205, 114, 0.32);
   border-radius: 999px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(242, 205, 114, 0.12);
+  background: rgba(242, 205, 114, 0.1);
+  color: #f7e7ba;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 180ms ease;
 }
 
-.intro-bar span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #7a5a14 0%, #f2cd72 55%, #fff2cb 100%);
-  animation: intro-progress 13s linear forwards;
+.intro-skip:hover {
+  background: rgba(242, 205, 114, 0.18);
+  border-color: rgba(242, 205, 114, 0.5);
 }
 
 .intro-orbit {
@@ -133,16 +135,6 @@ p {
   right: 8%;
   bottom: 12%;
   background: radial-gradient(circle, rgba(242, 205, 114, 0.14), transparent 68%);
-}
-
-@keyframes intro-progress {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
 }
 
 .page-shell {

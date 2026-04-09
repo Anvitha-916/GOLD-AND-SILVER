@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const DISPLAY_MS = 13000;
+const DISPLAY_MS = 20000;
 const FADE_MS = 900;
 
 export default function IntroOverlay() {
@@ -22,6 +22,13 @@ export default function IntroOverlay() {
     };
   }, []);
 
+  function handleSkip() {
+    setIsFading(true);
+    window.setTimeout(() => {
+      setIsVisible(false);
+    }, FADE_MS);
+  }
+
   if (!isVisible) {
     return null;
   }
@@ -36,9 +43,9 @@ export default function IntroOverlay() {
         <p className="intro-copy">
           Turning global production, demand signals, and predictive models into decisions for gold and silver markets.
         </p>
-        <div className="intro-bar">
-          <span />
-        </div>
+        <button type="button" className="intro-skip" onClick={handleSkip}>
+          Skip Intro
+        </button>
       </div>
     </section>
   );
