@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_BASE from "./api";
 import {
   CartesianGrid,
   Line,
@@ -9,8 +10,6 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-
-const API_BASE = "http://127.0.0.1:8000";
 
 function formatPrice(value, currency) {
   if (value == null) {

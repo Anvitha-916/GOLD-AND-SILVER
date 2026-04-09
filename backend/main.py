@@ -2,14 +2,16 @@ from __future__ import annotations
 
 from datetime import datetime
 from functools import lru_cache
+import os
 from pathlib import Path
 import pickle
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-MODEL_PATH = Path(r"c:\Users\windows\Downloads\commodity_models.pkl")
-MAPS_DATA_PATH = Path(r"c:\Users\windows\Downloads\plot_maps_data.pkl")
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = Path(os.getenv("MODEL_PATH", BASE_DIR / "commodity_models.pkl"))
+MAPS_DATA_PATH = Path(os.getenv("MAPS_DATA_PATH", BASE_DIR / "plot_maps_data.pkl"))
 
 app = FastAPI(title="Commodity Price Prediction API", version="2.0.0")
 

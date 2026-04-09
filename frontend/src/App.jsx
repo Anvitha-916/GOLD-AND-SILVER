@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_BASE from "./api";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import {
   CartesianGrid,
@@ -11,7 +12,6 @@ import {
   YAxis,
 } from "recharts";
 
-const API_BASE = "http://127.0.0.1:8000";
 const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 const REGION_COUNTRIES = {
   Europe: [
