@@ -145,12 +145,15 @@ def options() -> dict[str, list[str]]:
 @app.get("/global-stats/options")
 def global_stats_options() -> dict[str, list[str]]:
     catalog = load_global_stats_catalog()
+    stat_roots = {
+        key.replace("_prod", "").replace("_use", "")
+        for key in catalog.keys()
+        if key.endswith("_prod") or key.endswith("_use")
+    }
     categories = sorted(
-        {
-            key.replace("_prod", "").replace("_use", "")
-            for key in catalog.keys()
-            if key.endswith("_prod") or key.endswith("_use")
-        }
+        category
+        for category in stat_roots
+        if f"{category}_prod" in catalog and f"{category}_use" in catalog
     )
     return {"categories": [category.title() for category in categories]}
 
