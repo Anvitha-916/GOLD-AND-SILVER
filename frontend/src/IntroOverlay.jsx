@@ -2,17 +2,31 @@ import { useEffect, useState } from "react";
 
 const DISPLAY_MS = 20000;
 const FADE_MS = 900;
+const INTRO_STORAGE_KEY = "precious-metals-intro-seen";
 
 export default function IntroOverlay() {
   const [isFading, setIsFading] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(() => {
+    try {
+      return sessionStorage.getItem(INTRO_STORAGE_KEY) !== "true";
+    } catch {
+      return true;
+    }
+  });
 
   useEffect(() => {
+    if (!isVisible) {
+      return undefined;
+    }
+
     const fadeTimer = window.setTimeout(() => {
       setIsFading(true);
     }, DISPLAY_MS);
 
     const hideTimer = window.setTimeout(() => {
+      try {
+        sessionStorage.setItem(INTRO_STORAGE_KEY, "true");
+      } catch {}
       setIsVisible(false);
     }, DISPLAY_MS + FADE_MS);
 
@@ -24,6 +38,9 @@ export default function IntroOverlay() {
 
   function handleSkip() {
     setIsFading(true);
+    try {
+      sessionStorage.setItem(INTRO_STORAGE_KEY, "true");
+    } catch {}
     window.setTimeout(() => {
       setIsVisible(false);
     }, FADE_MS);
